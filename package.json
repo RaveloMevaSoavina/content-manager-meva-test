@@ -1,0 +1,13 @@
+{
+  "name": "@meva/root",
+  "private": "true",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "author": "RaveloMevaSoavina",
+  "license": "MIT"
+}

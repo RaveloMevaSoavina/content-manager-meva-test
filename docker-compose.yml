@@ -1,0 +1,11 @@
+version: '3'
+services:
+  database:
+    platform: linux/x86_64
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=meva
+      - MYSQL_PASSWORD=root
+    volumes:
+      - ./mysql-data:/var/lib/mysql
