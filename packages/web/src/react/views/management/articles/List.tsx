@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Header from '../../../layout/header';
 import {
   CTable,
   CTableBody,
@@ -10,6 +9,14 @@ import {
 } from '@coreui/react';
 import styled from 'styled-components';
 import useAsyncEffect from 'use-async-effect';
+
+import Header from '~/react/layout/header';
+import ActionGroup from '~/react/components/Action/ActionGroup';
+import RemoveModal from '~/react/components/Modal/Remove';
+import CreateModal from '~/react/components/Modal/CreateArticle';
+import ButtonCreate from '~/react/components/Action/ButtonCreate';
+import Filter from '~/react/components/Filter';
+
 import {
   createOne,
   getAllArticles,
@@ -17,30 +24,25 @@ import {
   getArticleByTag,
   removeOne,
   updateOne,
-} from '../../../../services/articles/articles.repository';
-import ActionGroup from '../../../components/Action/ActionGroup';
+} from '~/services/articles/articles.repository';
+import formatDate from '~/services/utils/formatDate';
 
-import RemoveModal from '../../../components/Modal/Remove';
-import CreateModal from '../../../components/Modal/CreateArticle';
-import ButtonCreate from '../../../components/Action/ButtonCreate';
-import formatDate from '../../../../services/utils/formatDate';
 import { ApiResponse } from 'types/ApiResponse';
 import { Article } from 'types/Article';
+import { Category } from 'types/Category';
 import {
   getAllCategory,
   getCategoryOfArticle,
-} from '../../../../services/categories/categories.repository';
-import { Category } from 'types/Category';
-import Filter from '../../../components/Filter';
+} from '~/services/categories/categories.repository';
 
 function ArticleList() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [isNewOpen, setIsNewOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false);
+  const [isNewOpen, setIsNewOpen] = useState<boolean>(false);
   const [itemOpen, setItemOpen] = useState<Article>({} as Article);
   const [type, setType] = useState('CREATE');
-  const [refresh, setRefresh] = useState(false);
+  const [refresh, setRefresh] = useState<boolean>(false);
 
   useAsyncEffect(async () => {
     const articlesList: ApiResponse<Article[]> = await getAllArticles();

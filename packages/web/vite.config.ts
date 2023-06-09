@@ -10,12 +10,10 @@ export default defineConfig({
   }, 
   plugins: [react()],
   resolve: {
-    alias: { 
-      src: "src",
-      type: "src/types",
-      redux: "src/redux",
-      reacts: "src/react"
+    alias: {
+      '~': path.resolve(__dirname, 'src'),
     },
   },
+
 
 })

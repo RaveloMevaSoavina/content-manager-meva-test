@@ -5,6 +5,7 @@ import {
   faNewspaper,
   faTags,
   faListAlt,
+  faHome,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
@@ -13,6 +14,10 @@ function Sidebar() {
     <Wrapper>
       <Brand>ArtiScribe</Brand>
       <Menus>
+        <CustomLink to='/'>
+          <FontAwesomeIcon icon={faHome} size='lg' />
+          <Item>Home</Item>
+        </CustomLink>
         <CustomLink to='/articles'>
           <FontAwesomeIcon icon={faNewspaper} size='lg' />
           <Item>Articles</Item>

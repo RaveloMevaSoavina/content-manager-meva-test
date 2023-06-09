@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
-import Layout from './reacts/layout';
+import Layout from './react/layout/index.tsx';
 import '@coreui/coreui/dist/css/coreui.min.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
